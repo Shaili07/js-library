@@ -1,59 +1,48 @@
-# JsLibrary
+# @shaili-g/npx-potions-form
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.4.
+A simple and customizable Angular form component for creating potions with ingredients, effects, difficulty levels, and more.
+Ideal for potion-making applications or any fun form you need for dynamic fields!
 
-## Development server
+## Features
 
-To start a local development server, run:
+- Easily customizable form with dynamic ingredients input.
+- Supports validations like required fields and dynamic form resets.
+- Built with Angular Material for a modern UI.
+- Unit testing done with Jasmine and Karma.
 
-```bash
-ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+To install the package, run:
+**npm install @shaili_g/npx-potions-form**
 
-## Code scaffolding
+I intended to add a background image to the library for aesthetics, but you can add this to your Angular application from here:
+projects/npx-potions-form/src/assets/ghibli-bar.png
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+I have added custom CSS in this reactive form with validations on required fields. 
+Below are the fields present in the form:
+=> name – name of the potion (required) : TEXT
 
-```bash
-ng generate component component-name
-```
+=> description – the main characteristics of the potion (required) : TEXT
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+=> ingredients – a list of ingredients to make the potion (required) : implemented as chips, can add/delete
 
-```bash
-ng generate --help
-```
+=> difficulty – the difficulty of making the potion (optional) : dropdown implementation
 
-## Building
+=> effect – the primary effects of the potion (optional): TEXT
 
-To build the project run:
+=> side effects – the side effects of the potion (optional): TEXT
 
-```bash
-ng build
-```
+## Inputs
+defaultValues: any: Sets the initial values for the form fields. Can be customized with properties like name, description, difficulty, ingredients, effect, and sideEffects.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## Outputs
+formSubmit: EventEmitter<any>: Emits the form data when submitted.
 
-## Running unit tests
+formReset: EventEmitter<void>: Emits when the form is reset.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+formCancel: EventEmitter<void>: Emits when the form is cancelled.
 
-```bash
-ng test
-```
 
-## Running end-to-end tests
 
-For end-to-end (e2e) testing, run:
 
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Angular Version: 19.2.4
+Angular Material: 19.2.7
