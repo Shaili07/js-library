@@ -1,0 +1,67 @@
+<div class="potion-form-container">
+  <form [formGroup]="potionForm" (ngSubmit)="onSubmit()" class="potion-form">
+    <h2>Alchemy 101: Create Your Potion!</h2>
+
+    <mat-form-field class="example-form-field">
+      <mat-label> Potion Name: </mat-label>
+      <input matInput formControlName="name" required />
+      <mat-error *ngIf="potionForm.get('name')?.invalid && potionForm.get('name')?.touched">
+        Name is required.
+      </mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field class="example-form-field">
+      <mat-label> Description: </mat-label>
+      <input formControlName="description" matInput required>
+      <mat-error *ngIf="potionForm.get('description')?.invalid && potionForm.get('description')?.touched">
+        Description is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-form-field">
+      <mat-label>Ingredients:</mat-label>
+      <mat-chip-grid #chipGrid aria-label="Enter ingredients" [formControl]="ingredientsControl">
+        <mat-chip-row *ngFor="let ingredient of ingredientsControl.value; let i = index"
+          (removed)="removeIngredient(i)">
+          {{ ingredient }}
+          <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+          </button>
+        </mat-chip-row>
+      </mat-chip-grid>
+      <input placeholder="New ingredient..." [matChipInputFor]="chipGrid"
+        (matChipInputTokenEnd)="addIngredient($event)" />
+      <mat-error *ngIf="ingredientsControl.invalid && ingredientsControl.touched">
+        At least one ingredient is required.
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Difficulty:</mat-label>
+      <mat-select id="difficulty" formControlName="difficulty">
+        @for (difficulty of difficulties; track difficulty) {
+        <mat-option [value]="difficulty">{{difficulty.viewValue}}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+
+    <mat-form-field class="example-form-field">
+      <mat-label>Effect:</mat-label>
+      <input id="effect" class="form-mat-label" formControlName="effect" matInput />
+    </mat-form-field>
+
+    <mat-form-field class="example-form-field">
+      <mat-label for="sideEffects" class="form-mat-label">Side Effects:</mat-label>
+      <input id="sideEffects" class="form-mat-label" formControlName="sideEffects" matInput />
+    </mat-form-field>
+
+    <div class="button-group">
+      <button mat-raised-button color="primary" type="submit"
+        [disabled]="potionForm.invalid || ingredientsControl.value.length === 0">Submit</button>
+      <button mat-button type="button" (click)="onReset()">Reset</button>
+    </div>
+
+  </form>
+</div>
