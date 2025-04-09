@@ -10,12 +10,23 @@ Ideal for potion-making applications or any fun form you need for dynamic fields
 - Built with Angular Material for a modern UI.
 - Unit testing done with Jasmine and Karma.
 
+## Steps to Integrate the Library:
+ 1. To install the package, run:
 
-To install the package, run:
-**npm install @shaili_g/npx-potions-form**
+    ```npm install @shaili_g/npx-potions-form```
 
-I intended to add a background image to the library for aesthetics, but you can add this to your Angular application from here:
-projects/npx-potions-form/src/assets/ghibli-bar.png
+2. Since Angular Material libraries are utilized in this component, you need to add Angular Material in your application using:
+
+   ```ng add @angular/material```
+
+3. Import the NpxPotionsFormModule into your relevant app module.
+   
+   ```import {NpxPotionsFormModule} from '@shaili_g/npx-potions-form'```
+
+4. Use the library's component.
+
+   ```<lib-npx-potions-form></lib-npx-potions-form>```
+
 
 I have added custom CSS in this reactive form with validations on required fields. 
 Below are the fields present in the form:
