@@ -43,15 +43,16 @@ Below are the fields present in the form:
 => side effects – the side effects of the potion (optional): TEXT
 
 ## Inputs
-defaultValues: any: Sets the initial values for the form fields. Can be customized with properties like name, description, difficulty, ingredients, effect, and sideEffects.
+   defaultValues: any: Sets the initial values for the form fields. Can be customized with properties like name, description, difficulty, ingredients, effect, and sideEffects.
 
 ## Outputs
-formSubmit: EventEmitter<any>: Emits the form data when submitted.
+   formSubmit: EventEmitter<any>: Emits the form data when submitted.
 
-formReset: EventEmitter<void>: Emits when the form is reset.
+   formReset: EventEmitter<void>: Emits when the form is reset.
 
-formCancel: EventEmitter<void>: Emits when the form is cancelled.
 
+
+Unit testing has been done for all input field validations and events using Jasmine and Karma, with 0 failures.
 
 
 
